@@ -2,7 +2,7 @@
   description = "Pre-compiled Nvidia Driver";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
     systems = {
       url = "github:nix-systems/default";
@@ -37,6 +37,8 @@
         packages = {
           inherit nvidia-driver;
           default = nvidia-driver;
+          nvidia-driver-prebuilt = nvidia-driver;
+          obs-studio-cuda = pkgs.obs-studio.override { cudaSupport = true; };
         };
       };
     };
