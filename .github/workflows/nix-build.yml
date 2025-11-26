@@ -22,4 +22,4 @@ jobs:
         with:
           name: adithyagenie
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix build --json | jq -r '.[].outputs | to_entries[].value' | cachix push adithyagenie
+      - run: nix build .#nvidia-driver-prebuilt .#obs-studio-cuda --json | jq -r '.[].outputs | to_entries[].value' | cachix push adithyagenie

@@ -33,6 +33,7 @@
         _module.args.pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
+          config.cudaSupport = true;
         };
         packages = {
           inherit nvidia-driver;
